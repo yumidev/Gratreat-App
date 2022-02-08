@@ -61,6 +61,8 @@ function MoodTrackerPage(props) {
     setDate(firstDayofLastMonth.valueOf())
   }
 
+  console.log('props.logList', props.logList);
+
   return (
     <Main className="container">
       <div className={headerStyle.header}>

@@ -1,6 +1,13 @@
 export const setLSdata = (dataObj) => {
-  const dataStr = JSON.stringify(dataObj);
-  window.localStorage.setItem('gratreat', dataStr);
+  const orgData = getLSdata();
+  if (orgData) {
+    orgData.gratiLogs = dataObj;
+    const dataStr = JSON.stringify(orgData);
+    window.localStorage.setItem('gratreat', dataStr);
+  } else {
+    const dataStr = JSON.stringify(dataObj);
+    window.localStorage.setItem('gratreat', dataStr);
+  }
 }
 export const getLSdata = () => {
   const rawData = window.localStorage.getItem('gratreat')
@@ -13,9 +20,16 @@ export const getGratiLogs = () => {
 }
 
 export const getSingleRecord = (date) => {
-  const logs = getGratiLogs();
-
-  return logs[date];
+  // if (window && window.localStorage && window.localStorage.getItem('gratreat')) {
+  //   console.log("window.localStorage.getItem('gratreat')", window.localStorage.getItem('gratreat'))
+  //   const dataObj = JSON.parse(window.localStorage.getItem('gratreat'));
+  //   console.log('dataObj', dataObj)
+    const logs = getGratiLogs()
+    // console.log(logs);
+    return logs[date];
+  // } else {
+  //   return
+  // }
 }
 
 export const addRecord = (record) => {
@@ -26,10 +40,10 @@ export const addRecord = (record) => {
   setLSdata(logs)
 }
 
-export const editRecord = (record) => {
+export const editRecord = (date, record) => {
   const logs = getGratiLogs();
 
-  logs[record[0]] = record[1];
+  logs[date] = record;
 
   setLSdata(logs);
 }
@@ -37,10 +51,13 @@ export const editRecord = (record) => {
 export const deleteOneRecord = (date, i) => {
   const logs = getGratiLogs();
   if (logs[date]) {
-    delete logs[date]
+    // delete logs[date]
+    // logs[date].logs = logs[date].logs.splice(i, 1);
+    logs[date].logs.splice(i, 1);
+    console.log('delete', logs[date]);
   }
 
-  editRecord(logs)
+  editRecord(date, logs[date])
 }
 
 export const checkRecordExists = (date) => {
