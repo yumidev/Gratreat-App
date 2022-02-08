@@ -3,12 +3,7 @@ import styles from "./TreatsPage.module.css";
 import "bootstrap/dist/css/bootstrap.css";
 import TreatsBarCodePage from "./TreatsBarCodePage";
 import { Switch, Route, Link } from "react-router-dom";
-import coffeeImage from "../images/Treats-Item1-Coffee.png";
-import macaroons from "../images/Treats-Item2-Macaroons.png";
-import yoga from "../images/Treats-Item4-Yoga.png";
-import meditation from "../images/Treats-Item5-Meditation.png";
-import insurance from "../images/Treats-Item7-insurance.png";
-import therapy from "../images/Treats-Item8-Theraphy.png";
+import TreatsList from "./TreatsList";
 
 function TreatsPage() {
   return (
@@ -43,52 +38,14 @@ function TreatsPage() {
             <p>Eat well</p>
           </div>
           <div class="row">
-            <div class="col-6">
-              <img src={coffeeImage} alt="coffee-treat" />
-              <p className={styles.treatDescription}>Free Coffee and Cookies</p>
-            </div>
-            <div class="col-6">
-              <img src={macaroons} alt="macaroon-treat" />
-              <Link to="/treatsbarcode">
-                <p className={styles.treatDescription}>
-                  Free Macaroons 1 set (5 pc)
-                </p>
-              </Link>
-            </div>
-          </div>
-          <div class="row mt-2 " className={styles.menuName}>
-            <p class="mt-2">Keep active</p>
-          </div>
-          <div class="row mbt-5">
-            <div class="col-6">
-              <img src={yoga} alt="yoga-treat" />
-              <p className={styles.treatDescription}>
-                1-hour Studio Yoga class
-              </p>
-            </div>
-            <div class="col-6">
-              <img src={meditation} alt="meditation-treat" />
-              <p className={styles.treatDescription}>
-                25% Off Meditation Class
-              </p>
-            </div>
-          </div>
-          <div class="row mt-2 " className={styles.menuName}>
-            <p class="mt-2">Manage your Health</p>
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <img src={insurance} alt="insurance-treat" />
-              <p className={styles.treatDescription}>
-                15% Off Mental Health Insurance
-              </p>
-            </div>
-            <div class="col-6">
-              <img src={therapy} alt="therapy-treat" />
-              <p className={styles.treatDescription}>
-                3 times therapy sessions
-              </p>
-            </div>
+            {TreatsList.map((item) => {
+              return (
+                <div class="col-6" key={item.id}>
+                  <img src={item.img} />
+                  <p className={styles.treatDescription}>{item.description}</p>
+                </div>
+              );
+            })}{" "}
           </div>
         </div>
       </div>
