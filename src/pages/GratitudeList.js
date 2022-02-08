@@ -10,13 +10,14 @@ import Header from "./Header";
 import Footer from "./Footer.jsx";
 
 function GratitudeList({
+  logList,
+  setLogList,
   promptsClicked,
   entryNumber,
+  setentryNumber,
   setPromptsClicked,
   trackMood,
   setTrackMood,
-  logList,
-  setLogList
 }) {
   const [check, setCheck] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
@@ -54,7 +55,7 @@ function GratitudeList({
 
     console.log('it is happening')
     if (!item.value || /^\s*$/.test(item.value)) {
-      // setentryNumber(0);
+      setentryNumber(0);
       return;
     }
     const newArray = item.value;
@@ -97,6 +98,7 @@ function GratitudeList({
         <FormatDate />, 2020
       </div>
       <p className={styles.pagesubheading}>I am </p>
+      {/* <form action="#" onSubmit={(e) => handleSubmit(e, prompt)}> */}
         <div className={styles.gratitudeContainer}>
           <div className={styles.listContainer}>
             {promptsClicked.map(renderInput)}
@@ -105,6 +107,7 @@ function GratitudeList({
         <button type="submit" className={styles.gratitudePageBtn} onClick={handleClick}>
           Submit Log
         </button>
+      {/* </form> */}
     </div>
   );
 }
