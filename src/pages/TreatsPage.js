@@ -1,14 +1,39 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import styles from "./TreatsPage.module.css";
 import "bootstrap/dist/css/bootstrap.css";
 import TreatsBarCodePage from "./TreatsBarCodePage";
 import { Switch, Route, Link } from "react-router-dom";
+import GratitudeList from "./GratitudeList";
+import Header from "./Header";
+import PromptsList from "../db/PromptsList";
 import TreatsList from "./TreatsList";
+import {useState} from "react";
 
-function TreatsPage() {
+function TreatsPage({logList}) {
+  const [treatItem, setTreatItem] = useState([]);
+  const [showSection, setShowSection] = useState(false);
+  const [viewList, setViewList] = useState("none");
+  const [hideBoard, sethideBoard] = useState("");
+
+
+  const history = useHistory();
+
+  let pointsEarned = parseInt(logList.length * 100);
+
+  const handleClick = (e, product) =>{
+    const getTreat = product;
+    setTreatItem([...treatItem, getTreat]);
+    setShowSection(!showSection);
+    setViewList("");
+    sethideBoard("none")
+    history.push("/treats");
+  }
+
+
   return (
     <>
-      <div>
+      <div style={{ display: hideBoard }}>
         <nav
           class="navbar navbar-expand-lg fixed-top "
           className={styles.headerTreatsPage}
@@ -22,7 +47,7 @@ function TreatsPage() {
           <div class="row " className={styles.subHeader}>
             <div class="col">
               <h6>You earned</h6>
-              <h4>25600 Points</h4>
+              <h4>{pointsEarned}</h4>
               <p>so far</p>
             </div>
             <div class="col">
@@ -38,16 +63,26 @@ function TreatsPage() {
             <p>Eat well</p>
           </div>
           <div class="row">
-            {TreatsList.map((item) => {
+          {TreatsList.map((item) => {
               return (
                 <div class="col-6" key={item.id}>
-                  <img src={item.img} />
-                  <p className={styles.treatDescription}>{item.description}</p>
+                   <img src={item.img} />
+                   <p className={styles.treatDescription}>{item.description}</p>
+                   <button className={styles.linkBtn}
+                    key={item.id}
+                    onClick={(e) => handleClick(e, item)}
+                  >
+                    Link
+                  </button>
                 </div>
+                
               );
-            })}{" "}
-          </div>
+            })}
+            </div>
         </div>
+      </div>
+      <div style={{ display: viewList }}>
+              <TreatsBarCodePage treatItem={treatItem} pointsEarned={pointsEarned} />
       </div>
     </>
   );

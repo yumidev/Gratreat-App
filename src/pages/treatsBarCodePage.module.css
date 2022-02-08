@@ -92,3 +92,8 @@ a:hover {
   font-weight: bold;
   text-decoration: none;
 }
+
+.treatImg{
+  width:50%;
+  margin: 0 auto;
+}

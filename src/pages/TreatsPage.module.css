@@ -80,3 +80,12 @@ a:hover {
 img {
   padding-top: 20px;
 }
+
+.linkBtn{
+  margin-top:20px;
+  border-style: none;
+  padding:5px;
+  padding-left:15px;
+  padding-right:15px;
+  border-radius: 5px;
+}
