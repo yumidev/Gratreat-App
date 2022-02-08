@@ -71,7 +71,12 @@ function TreatsBarCodePage({ treatItem, pointsEarned }) {
             </div>
             <div class="row">
               <div class="col-12 mt-3">
-                <img src={barCode} alt="bar-code" width="300" />
+                <img
+                  src={barCode}
+                  alt="bar-code"
+                  width="300"
+                  className={styles.container}
+                />
                 <p class="text-bold mt-3" className={styles.textBold}>
                   Or Use the promo code
                 </p>
