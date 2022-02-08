@@ -33,7 +33,6 @@ function MoodboardPage() {
     if (trackMood.length < 1) {
       setTrackMood([...trackMood, optionSelected]);
       const target = e.target;
-      //target.style.backgroundColor = "var(--link-active-color)";
       target.style.color = "black";
     }
   };
