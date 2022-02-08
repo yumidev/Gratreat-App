@@ -23,15 +23,23 @@ const CalendarBoxWrapper = styled.div`
   }
 
   .happy {
-    background-color: pink;
+    background-color: #a5a6f6;
   }
 
-  .grin {
+  .meh {
+    background-color: #ff8200;
+  }
 
+  .sad {
+    background-color: #ff6969;
   }
 
   .smile {
+    background-color: #54de9c;
+  }
 
+  .frown {
+    background-color: #bada01;
   }
 `
 
@@ -63,7 +71,7 @@ const CalendarBox = (props) => {
           {dateNum}
         </span>
       )
-      count --
+      count --;
     }
 
     return bubbles;
@@ -71,7 +79,7 @@ const CalendarBox = (props) => {
 
   return (
     <CalendarBoxWrapper>
-      {daysOfWeek.map(d => <span className="cell dow">{d}</span>)}
+      {daysOfWeek.map((d, i) => <span key={`dow-${i}`} className="cell dow">{d}</span>)}
       {getMonthBubbles(props.date)}
     </CalendarBoxWrapper>
   )
