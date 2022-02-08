@@ -1,0 +1,82 @@
+:root {
+  --main-background-color: #fcfcfc;
+  --nav-hover-color: #e5e5e5;
+  --nav-background-color: #f8f9fa;
+  --text-color: #828282;
+  --link-active-color: #fbaf61;
+  --box-shadow-color: 0 0 3px rgba(0, 0, 0, 0.2);
+  --button-color: #fb8201;
+  --record-container-blue: #92a7dd;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.headerTreatsPage {
+  background-color: #54de9c;
+  height: 170px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.subHeader {
+  display: flex;
+  text-align: left;
+  background: linear-gradient(135deg, #004d28 60%, #999999 40%);
+  color: white;
+  padding: 5px 10px 35px 10px;
+}
+
+div.col {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+h6,
+h4,
+p {
+  padding: 0;
+}
+
+p {
+  font-size: 12px;
+}
+
+.footer {
+  margin: 0 20px 0 20px;
+  text-align: center;
+  color: var(--text-color);
+  text-decoration: none;
+  border-top: var(--link-active-color);
+}
+
+a:hover {
+  color: #54de9c;
+  border-top: 2px solid #54de9c;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.treatsMenu {
+  text-align: center;
+}
+
+.menuName {
+  text-align: justify;
+}
+
+.treatDescription {
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+img {
+  padding-top: 20px;
+}

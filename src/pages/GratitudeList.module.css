@@ -1,0 +1,119 @@
+:root {
+  --main-background-color: #fcfcfc;
+  --nav-hover-color: #e5e5e5;
+  --nav-background-color: #f8f9fa;
+  --text-color: #828282;
+  --link-active-color: #fbaf61;
+  --box-shadow-color: 0 0 3px rgba(0, 0, 0, 0.2);
+  --button-color: #fb8201;
+}
+
+@media (max-width: 820px) {
+  .gratitudePageBtn {
+    margin-top: 30px !important;
+    padding: 0px;
+    height: 50px !important;
+    width: 100% !important;
+    margin: 10px 5px !important;
+  }
+}
+
+.titleHeading {
+  background-color: var(--link-active-color);
+  height: 170px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.topTitle {
+  font-size: 14px;
+  margin: 0 auto;
+  font-weight: bold;
+  padding: 0p;
+}
+
+.title {
+  padding: 0;
+  font-size: 2rem;
+  margin: 0 auto;
+  font-weight: bold;
+}
+
+textarea {
+  border: none;
+}
+
+p {
+  font-size: 1rem;
+  height: 10px;
+}
+
+form,
+.userEntryContainer {
+  color: var(--button-color);
+  margin: 0 auto;
+}
+
+.userEntry {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 1px 1px 8px rgb(129, 127, 127);
+  margin-top: 20px;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gratitudeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #cecece;
+  padding: 0;
+  list-style: none;
+  background: var(--main-background-color);
+}
+
+.promptPageBtn {
+  background-color: var(--button-color);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-color: transparent;
+}
+
+.gratitudePageBtn {
+  margin: 50px;
+  background-color: var(--button-color);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 14px;
+  height: 63px;
+  width: 300px;
+  line-height: 3.5;
+  border-color: transparent;
+}
+
+.pagesubheading {
+  text-align: left;
+  margin-left: 60px;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.inputNumber {
+  margin-right: 15px;
+  color: rgb(138, 138, 138);
+}

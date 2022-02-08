@@ -1,0 +1,143 @@
+:root {
+  --main-background-color: #fcfcfc;
+  --nav-hover-color: #e5e5e5;
+  --nav-background-color: #f8f9fa;
+  --text-color: #828282;
+  --link-active-color: #fbaf61;
+  --box-shadow-color: 0 0 3px rgba(0, 0, 0, 0.2);
+  --button-color: #fb8201;
+}
+
+.header {
+  text-align: justify;
+  text-indent: 2rem;
+}
+
+@media (max-width: 820px) {
+  .mood-emoji {
+    font-size: 35px !important;
+  }
+
+  .date-format {
+    font-size: 12px !important;
+  }
+
+  div .emoji-menu {
+    margin-top: 100px !important;
+  }
+
+  .meh-emoji,
+  .frown-emoji,
+  .happy-emoji,
+  .grin-emoji {
+    max-height: 70px;
+    max-width: 70px;
+  }
+
+  .moodPageBtn {
+    font-size: 12px !important;
+    height: 45px !important;
+    width: 335px !important;
+    padding: 0;
+    margin: 10px auto !important;
+  }
+}
+
+body {
+  margin: 0 0 55px 0;
+  background-color: var(--main-background-color);
+}
+
+.footer a {
+  margin: 0 20px 0 20px;
+  text-align: center;
+  color: var(--text-color);
+  text-decoration: none;
+  border-top: var(--link-active-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.mood-emoji {
+  font-size: 80px !important;
+}
+
+.emojiBtn {
+  background: var(--main-background-color);
+  border: none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.emojiBtn:hover {
+  background: var(--main-background-color);
+}
+
+.emoji-menu {
+  padding: 15px;
+  list-style: none;
+  background: var(--main-background-color);
+}
+
+.mt-5 {
+  margin-top: 50px !important;
+}
+
+.p-2,
+.p-3,
+.p-4,
+.p-5 {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.moodPageBtn {
+  background-color: var(--button-color);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 14px;
+  height: 63px;
+  width: 300px;
+  line-height: 3.5;
+  border-color: transparent;
+  margin: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.date-format {
+  text-align: center;
+  font-size: 18px !important;
+}
+
+.grin-emoji {
+  color: #a5a6f6;
+}
+
+.sad-emoji {
+  color: #ff6969;
+}
+
+.meh-emoji {
+  color: #ff8200;
+}
+
+.happy-emoji {
+  color: #54de9c;
+}
+
+.frown-emoji {
+  color: #bada01;
+}
+
+.row {
+  justify-content: center;
+}

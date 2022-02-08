@@ -1,0 +1,222 @@
+:root {
+  --main-background-color: #fcfcfc;
+  --nav-hover-color: #e5e5e5;
+  --nav-background-color: #f8f9fa;
+  --text-color: #828282;
+  --link-active-color: #fbaf61;
+  --box-shadow-color: 0 0 3px rgba(0, 0, 0, 0.2);
+  --button-color: #fb8201;
+}
+
+@media (max-width: 820px) {
+  .mood-emoji {
+    font-size: 70px !important;
+  }
+
+  .date-format {
+    font-size: 12px !important;
+  }
+
+  .emoji-menu {
+    margin-top: 150px !important;
+  }
+
+  .prompt-menu {
+    margin-top: 100px !important;
+  }
+
+  .prompt-menu li {
+    margin-top: 20px !important;
+  }
+
+  .meh-emoji,
+  .frown-emoji,
+  .smile-emoji {
+    color: #54de9c;
+    max-height: 70px;
+    max-width: 70px;
+  }
+}
+
+body {
+  margin: 0 0 55px 0;
+  background-color: var(--main-background-color);
+}
+
+h1,
+h2 {
+  font-family: sans-serif;
+}
+
+h2 {
+  font-size: 14px;
+}
+
+.header {
+  background-color: var(--main-background-color) !important;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  box-shadow: var(--box-shadow-color);
+  background-color: var(--nav-background-color);
+  display: flex;
+  overflow-x: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  min-width: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: sans-serif;
+  font-size: 13px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  background-color: var(--nav-hover-color);
+  border-top: 2px solid var(--link-active-color);
+  color: var(--link-active-color);
+}
+
+.nav__link--active {
+  color: var(--link-active-color);
+}
+
+.nav__icon {
+  font-size: 18px;
+}
+
+.mood-emoji {
+  font-size: 80px;
+}
+
+.emoji-menu {
+  margin-top: 20px;
+  padding: 15px;
+  list-style: none;
+  background: var(--main-background-color);
+  height: 700px;
+}
+
+.prompt-menu {
+  margin-top: 100px;
+
+  align-items: center;
+  color: #cecece;
+  padding: 15px;
+  list-style: none;
+  background: var(--main-background-color);
+}
+
+.prompt--active {
+  line-height: 5;
+  text-align: center;
+  cursor: pointer;
+  height: 80px;
+  width: 75px;
+  margin: 20px 0 0 0;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-color);
+  background-color: var(--link-active-color);
+  color: white;
+}
+
+.mt-5 {
+  margin-top: 50px !important;
+}
+
+.p-2,
+.p-3,
+.p-4,
+.p-5 {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+.prompt-menu li {
+  text-align: center;
+  cursor: pointer;
+  height: 80px;
+  width: 75px;
+  margin: 20px 0 0 0;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow-color);
+  line-height: 5;
+}
+
+.prompt-page-btn {
+  background-color: var(--button-color);
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  font-size: 14px;
+  height: 63px;
+  width: 300px;
+  line-height: 3.5;
+}
+
+.grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.date-format {
+  text-align: center;
+  font-size: 18px;
+}
+
+#current-day {
+  text-align: center;
+}
+
+.gratitudeContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  padding-top: 50px;
+}
+
+.happy-emoji {
+  color: #a5a6f6;
+}
+
+.sad-emoji {
+  color: #ff6969;
+  padding: 0;
+}
+
+.meh-emoji {
+  color: #ff8200;
+  height: 80px !important;
+  width: 80px !important;
+}
+
+.smile-emoji {
+  color: #54de9c;
+  height: 80px !important;
+  width: 80px !important;
+}
+.frown-emoji {
+  color: #bada01;
+  height: 80px !important;
+  width: 80px !important;
+}
+.row {
+  justify-content: center;
+}
