@@ -40,6 +40,7 @@ p {
 
 p {
   font-size: 12px;
+  
 }
 
 .footer {
@@ -67,30 +68,37 @@ a:hover {
 
 .menuName {
   text-align: justify;
+  color: black;
+  font-size:22px;
 }
 
 .treatExpiration {
-  color: #aaaaaa;
+  color: pink;
   font-weight: lighter;
-  font-size: 12px;
+  font-size: 22px;
 }
 .treatPoints {
   font-weight: lighter;
-  font-size: 12px;
-  color: #555555;
+  font-size: 22px;
+  color: rgb(206, 252, 121);
 }
 
 .textBold {
   font-weight: bold;
+  font-size:24px;
+  padding-top:10px;
 }
 
 .promo {
-  padding: 8px 100px;
+  width: 20%;
+
+  /* padding: 8px 100px; */
   margin: 0px auto;
   border: 4px dashed #54de9c;
   color: #54de9c;
   font-weight: bold;
   text-decoration: none;
+  padding:5px;
 }
 
 .treatImg {
@@ -110,3 +118,27 @@ a:hover {
   padding-right: 25px;
   border-radius: 15px;
 }
+
+.barCodebox{
+  padding-top:20px;
+  padding-bottom:20px;
+}
+
+.getBtn{
+  padding-top:40px;
+}
+
+/* button{
+  border:none;
+  background-color: #54de9c;
+  color:black;
+  padding:10px;
+  font-size:15px;
+  border-radius: 5px;
+} */
+
+.promo a{
+  color:#54de9c;
+}
+
+

@@ -50,7 +50,6 @@ function TreatsBarCodePage({ treatItem, pointsEarned }) {
               </div>
             </div>
           </div>
-
           <div className={styles.treatsMenu}>
             <div class="row menu-name" className={styles.menuName}></div>
             <div class="row mt-3">

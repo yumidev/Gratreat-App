@@ -8,7 +8,7 @@ import barCode from "../images/Haagen-Daz_barcode.jpeg";
 
 const TreatsList = [{
     id:101,
-    name: 'coffee',
+    name: 'Coffee',
     description: 'Free Coffee and Cookies',
     points: 200,
     img: coffee, 
@@ -17,7 +17,7 @@ const TreatsList = [{
     },
     {
         id:102,
-        name: 'macaroons',
+        name: 'Macaroons',
         description:'Free Macaroons 1 set (5 pc)' ,
         points: 250,
         img: macaroons,
@@ -27,7 +27,7 @@ const TreatsList = [{
     },
     {
         id:103,
-        name: 'yoga',
+        name: 'Yoga',
         description: '1-hour Studio Yoga class',
         points: 300,
         img: yoga,
@@ -36,7 +36,7 @@ const TreatsList = [{
     },
     {
         id:104,
-        name: 'meditation',
+        name: 'Meditation',
         description:' 25% Off Meditation Class' ,
         points: 400,
         img: meditation,
@@ -45,7 +45,7 @@ const TreatsList = [{
     },
     {
         id:105,
-        name: 'insurance',
+        name: 'Insurance',
         description: '15% Off Mental Health Insurance' ,
         points: 500,
         img: insurance,
@@ -54,7 +54,7 @@ const TreatsList = [{
     },
     {
         id:106,
-        name: 'therapy',
+        name: 'Therapy',
         description:'3 times therapy sessions' ,
         points: 650,
         img: therapy,

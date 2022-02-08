@@ -17,7 +17,6 @@ function GratiLogPage({
   trackMood,
   setTrackMood
 }) {
-  // const [trackMood, setTrackMood] = useState([]);
 
   const history = useHistory();
 
