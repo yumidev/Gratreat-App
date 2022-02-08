@@ -25,10 +25,6 @@ function GratiLogPage({
     history.push("/prompts");
   };
 
-  useEffect(() => {
-    console.log("promptsClicked in log page", promptsClicked);
-  }, []);
-
   return (
     <Section>
       <GratitudeList
