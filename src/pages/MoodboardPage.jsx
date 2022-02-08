@@ -30,10 +30,11 @@ function MoodboardPage() {
   const handleMoodSelection = (e, item) => {
     e.preventDefault();
     const optionSelected = item;
-    setTrackMood([...trackMood, optionSelected]);
-    const target = e.target;
-    //target.style.backgroundColor = "var(--link-active-color)";
-    target.style.color = "black";
+    if (trackMood.length < 1) {
+      setTrackMood([...trackMood, optionSelected]);
+      const target = e.target;
+      target.style.color = "black";
+    }
   };
 
   const clickContinue = () => {

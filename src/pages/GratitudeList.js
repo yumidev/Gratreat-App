@@ -12,28 +12,29 @@ import Footer from "./Footer.jsx";
 function GratitudeList({
   promptsClicked,
   entryNumber,
+
   setPromptsClicked,
   trackMood,
   setTrackMood,
   logList,
-  setLogList
+  setLogList,
 }) {
   const [check, setCheck] = useState(false);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [colorBtn, setColorBtn] = useState("")
-  const [formInput, setFormInput] = useState(promptsClicked.map(p => p.name));
+  const [colorBtn, setColorBtn] = useState("");
+  const [formInput, setFormInput] = useState(promptsClicked.map((p) => p.name));
 
   const history = useHistory();
 
   const handleClick = () => {
     // if (!item.value || /^\s*$/.test(item.value)) {
-    //   setentryNumber(0);
+    //setentryNumber(0);
     //   return;
     // }
     // const newArray = item.value;
     setLogList(formInput);
 
-    setIsDisabled(true)
+    setIsDisabled(true);
     // item.value = "";
     setColorBtn("gray");
 
@@ -43,8 +44,8 @@ function GratitudeList({
 
   const handleInputChange = (event, index) => {
     const newFormInput = formInput;
-    newFormInput[index] = event.target.value
-    console.log('newFormInput', newFormInput);
+    newFormInput[index] = event.target.value;
+    console.log("newFormInput", newFormInput);
     setFormInput(newFormInput);
     setLogList(newFormInput);
   };
@@ -52,14 +53,14 @@ function GratitudeList({
   const handleSubmit = (e, item) => {
     e.preventDefault();
 
-    console.log('it is happening')
+    console.log("it is happening");
     if (!item.value || /^\s*$/.test(item.value)) {
-      // setentryNumber(0);
+      //setentryNumber(0);
       return;
     }
     const newArray = item.value;
     setLogList(logList);
-    setIsDisabled(true)
+    setIsDisabled(true);
     item.value = "";
     setColorBtn("gray");
   };
@@ -97,14 +98,18 @@ function GratitudeList({
         <FormatDate />, 2020
       </div>
       <p className={styles.pagesubheading}>I am </p>
-        <div className={styles.gratitudeContainer}>
-          <div className={styles.listContainer}>
-            {promptsClicked.map(renderInput)}
-          </div>
+      <div className={styles.gratitudeContainer}>
+        <div className={styles.listContainer}>
+          {promptsClicked.map(renderInput)}
         </div>
-        <button type="submit" className={styles.gratitudePageBtn} onClick={handleClick}>
-          Submit Log
-        </button>
+      </div>
+      <button
+        type="submit"
+        className={styles.gratitudePageBtn}
+        onClick={handleClick}
+      >
+        Submit Log
+      </button>
     </div>
   );
 }

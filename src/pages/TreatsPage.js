@@ -3,7 +3,6 @@ import styles from "./TreatsPage.module.css";
 import "bootstrap/dist/css/bootstrap.css";
 import TreatsBarCodePage from "./TreatsBarCodePage";
 import { Switch, Route, Link } from "react-router-dom";
-
 import TreatsList from "./TreatsList";
 
 function TreatsPage() {
@@ -39,15 +38,15 @@ function TreatsPage() {
             <p>Eat well</p>
           </div>
           <div class="row">
-          {TreatsList.map((item) => {
+            {TreatsList.map((item) => {
               return (
                 <div class="col-6" key={item.id}>
-                   <img src={item.img} />
-                   <p className={styles.treatDescription}>{item.description}</p>
+                  <img src={item.img} />
+                  <p className={styles.treatDescription}>{item.description}</p>
                 </div>
               );
-            })}
-            </div>
+            })}{" "}
+          </div>
         </div>
       </div>
     </>
