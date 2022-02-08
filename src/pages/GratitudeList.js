@@ -12,7 +12,7 @@ import Footer from "./Footer.jsx";
 function GratitudeList({
   promptsClicked,
   entryNumber,
-  setentryNumber,
+
   setPromptsClicked,
   trackMood,
   setTrackMood,
@@ -28,7 +28,7 @@ function GratitudeList({
 
   const handleClick = () => {
     // if (!item.value || /^\s*$/.test(item.value)) {
-    setentryNumber(0);
+    //setentryNumber(0);
     //   return;
     // }
     // const newArray = item.value;
@@ -55,7 +55,7 @@ function GratitudeList({
 
     console.log("it is happening");
     if (!item.value || /^\s*$/.test(item.value)) {
-      setentryNumber(0);
+      //setentryNumber(0);
       return;
     }
     const newArray = item.value;
