@@ -226,23 +226,6 @@
           }
         ]
       },
-      '2022-02-09': {
-        mood: "frown",
-        logs: [
-          {
-            subject: "work",
-            text: "will start a new project"
-          },
-          {
-            subject: "friend",
-            text: "I met a nice guy last night"
-          },
-          {
-            subject: "moment",
-            text: "time for coffee at work"
-          }
-        ]
-      },
     }
   }
 

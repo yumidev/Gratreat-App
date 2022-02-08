@@ -20,18 +20,18 @@ const Section = styled.section`
   }
 `;
 
-function MoodboardPage() {
+function MoodboardPage(props) {
   const [showSection, setShowSection] = useState(false);
   const [moodList, setMoodList] = useState(MoodList);
-  const [trackMood, setTrackMood] = useState([]);
+  // const [trackMood, setTrackMood] = useState();
 
   const history = useHistory();
 
   const handleMoodSelection = (e, item) => {
     e.preventDefault();
     const optionSelected = item;
-    if (trackMood.length < 1) {
-      setTrackMood([...trackMood, optionSelected]);
+    if (!props.trackMood) {
+      props.setTrackMood(optionSelected);
       const target = e.target;
       target.style.color = "black";
     }
@@ -54,7 +54,7 @@ function MoodboardPage() {
                 <button
                   className="emojiBtn"
                   onClick={(e) =>
-                    handleMoodSelection(e, "far fa-grin grin-emoji")
+                    handleMoodSelection(e, "smile")
                   }
                 >
                   <i class={"far fa-grin grin-emoji"}></i>
@@ -68,7 +68,7 @@ function MoodboardPage() {
                   <button
                     className="emojiBtn"
                     onClick={(e) =>
-                      handleMoodSelection(e, "far fa-frown sad-emoji ")
+                      handleMoodSelection(e, "sad")
                     }
                   >
                     <i class={"far fa-frown sad-emoji "}></i>
@@ -87,7 +87,7 @@ function MoodboardPage() {
                   <button
                     className="emojiBtn"
                     onClick={(e) =>
-                      handleMoodSelection(e, "far fa-smile happy-emoji")
+                      handleMoodSelection(e, "happy")
                     }
                   >
                     <i class={"far fa-smile happy-emoji"}></i>
@@ -102,7 +102,7 @@ function MoodboardPage() {
                   <button
                     className="emojiBtn"
                     onClick={(e) =>
-                      handleMoodSelection(e, "far fa-angry frown-emoji ")
+                      handleMoodSelection(e, "frown")
                     }
                   >
                     <i class={"far fa-angry frown-emoji "}></i>
@@ -115,7 +115,7 @@ function MoodboardPage() {
                   <button
                     className="emojiBtn"
                     onClick={(e) =>
-                      handleMoodSelection(e, "far fa-meh meh-emoji")
+                      handleMoodSelection(e, "meh")
                     }
                   >
                     <i class={"far fa-meh meh-emoji"}></i>

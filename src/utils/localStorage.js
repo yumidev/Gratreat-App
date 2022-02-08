@@ -20,22 +20,14 @@ export const getGratiLogs = () => {
 }
 
 export const getSingleRecord = (date) => {
-  // if (window && window.localStorage && window.localStorage.getItem('gratreat')) {
-  //   console.log("window.localStorage.getItem('gratreat')", window.localStorage.getItem('gratreat'))
-  //   const dataObj = JSON.parse(window.localStorage.getItem('gratreat'));
-  //   console.log('dataObj', dataObj)
-    const logs = getGratiLogs()
-    // console.log(logs);
-    return logs[date];
-  // } else {
-  //   return
-  // }
+  const logs = getGratiLogs()
+  return logs[date];
 }
 
-export const addRecord = (record) => {
+export const addRecord = (date, record) => {
   const logs = getGratiLogs();
 
-  logs[record[0]] = record[1];
+  logs[date] = record;
 
   setLSdata(logs)
 }
@@ -51,8 +43,6 @@ export const editRecord = (date, record) => {
 export const deleteOneRecord = (date, i) => {
   const logs = getGratiLogs();
   if (logs[date]) {
-    // delete logs[date]
-    // logs[date].logs = logs[date].logs.splice(i, 1);
     logs[date].logs.splice(i, 1);
     console.log('delete', logs[date]);
   }
