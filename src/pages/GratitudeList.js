@@ -71,7 +71,6 @@ function GratitudeList({
   const handleInputChange = (event, index) => {
     const newFormInput = formInput;
     newFormInput[index] = event.target.value;
-    console.log("newFormInput", newFormInput);
     setFormInput(newFormInput);
     setLogList(newFormInput);
   };
@@ -79,7 +78,6 @@ function GratitudeList({
   const handleSubmit = (e, item) => {
     e.preventDefault();
 
-    console.log("it is happening");
     if (!item.value || /^\s*$/.test(item.value)) {
       //setentryNumber(0);
       return;

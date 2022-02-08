@@ -44,7 +44,6 @@ export const deleteOneRecord = (date, i) => {
   const logs = getGratiLogs();
   if (logs[date]) {
     logs[date].logs.splice(i, 1);
-    console.log('delete', logs[date]);
   }
 
   editRecord(date, logs[date])
