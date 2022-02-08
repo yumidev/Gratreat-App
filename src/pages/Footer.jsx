@@ -14,8 +14,8 @@ export default function Footer() {
   };
 
   return (
-    <nav className="navbar navbar-expand-xlg fixed-bottom  bg-light">
-      <Link to="/records" className="footer">
+    <nav className="navbar navbar-expand-xlg fixed-bottom bg-light">
+      <Link to="/mood-tracker" className="footer">
         <Archive></Archive>
         <span>Records</span>
       </Link>

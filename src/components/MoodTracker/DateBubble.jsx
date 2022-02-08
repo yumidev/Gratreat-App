@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Moment from "react-moment";
 
-const Wrapper = styled.div`
+const Wrapper = styled.span`
   .happy {
     background-color: pink;
   }

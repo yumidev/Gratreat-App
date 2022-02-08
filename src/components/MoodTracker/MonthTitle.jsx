@@ -7,9 +7,9 @@ const Wrapper = styled.div``
 
 const MonthTitle = (props) => {
   return (
-  <Wrapper>
+  <Wrapper className={props.className}>
     <button onClick={props.onClickPreviousMonth}>{'<'}</button>
-    <Moment local format="h:mm:ss DD MMMM YYYY">{props.date}</Moment>
+    {/* <Moment local format="h:mm:ss DD MMMM YYYY">{props.date}</Moment> */}
     <Moment local format="MMMM YYYY">{props.date}</Moment>
     <button onClick={props.onClickNextMonth}>{'>'}</button>
   </Wrapper>
