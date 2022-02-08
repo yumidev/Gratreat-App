@@ -10,8 +10,7 @@ import styles from "./Records.module.css";
 import yay from "../images/yay.png";
 
 const Section = styled.section``;
-function Submitted({ logList}) {
-
+function Submitted({logList}) {
 
   const history = useHistory();
 

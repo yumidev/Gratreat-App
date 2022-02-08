@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import TreatsPage from "./TreatsPage";
 import React from "react";
 import barCode from "../images/Haagen-Daz_barcode.jpeg";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 
 
@@ -11,8 +11,13 @@ function TreatsBarCodePage({treatItem, pointsEarned}) {
 
   const [deductPoints, setDeductPoints] = useState(pointsEarned);
   const [message, setMessage] = useState("Redeem your Points");
+  const [redeemTreats, setRedeemTreats] = useState();
   
   const history = useHistory();
+
+  useEffect(() => {
+    setRedeemTreats(treatItem);
+}, [setRedeemTreats, treatItem]);
 
   const handleClick = (e, y) =>{
     const subPoints = parseInt(deductPoints - y);
@@ -28,12 +33,11 @@ function TreatsBarCodePage({treatItem, pointsEarned}) {
 
     history.push("/treatsbarcode");
   }
-  
-  
 
-  return (
-    <>
-    {treatItem.map((treat) => (
+
+  
+  const renderInput = (treat, i) => {
+    return (
       <div>
         <nav class="navbar navbar-expand-lg fixed-top headerTreatsPage" className={styles.headerTreatsPage} >
           <div key={treat.id} class="text-center">
@@ -49,7 +53,6 @@ function TreatsBarCodePage({treatItem, pointsEarned}) {
             </div>
           </div>
           </div>
-
           <div className={styles.treatsMenu}>
           <div class="row menu-name" className={styles.menuName}></div>
           <div class="row mt-3">
@@ -68,7 +71,7 @@ function TreatsBarCodePage({treatItem, pointsEarned}) {
               Scan the product barcode
             </p>
           </div>
-          <div class="row">
+          <div class="row" className={styles.barCodebox} >
             <div class="col-12 mt-3">
               <img src={barCode} alt="bar-code" width="300" />
               <p class="text-bold mt-3" className={styles.textBold}>
@@ -76,25 +79,31 @@ function TreatsBarCodePage({treatItem, pointsEarned}) {
               </p>
             </div>
           </div>
-          <div class="row mt-4">
+          <div class="row mt-4" className={styles.promoBox}>
             <div class="text-center mt-2 " className={styles.promo}>
               <a class="text-center" href="">
                 {treat.promo}
               </a>
             </div>
             </div>
+          <div className={styles.getBtn}>
           <button onClick={(e) => handleClick(e, treat.points)}>
             Get Item
           </button>
           </div>
-          <div class="row mt-5">
-            <p class="text-bold text-center mb-2">to treat yourself or others!</p>
+          </div>
+          <div class="row mt-5" >
+            <p className={styles.textBold} class="text-bold text-center mb-2">to treat yourself or others!</p>
           </div>
       </div>
-      )
-    )}
-    
+    );
+  };
 
+  return (
+    <>
+    <div>
+    {redeemTreats.map((renderInput))}
+    </div>
     </>
   );
 }

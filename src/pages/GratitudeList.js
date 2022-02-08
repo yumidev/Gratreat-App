@@ -22,17 +22,13 @@ function GratitudeList({
   const [isDisabled, setIsDisabled] = useState(false);
   const [colorBtn, setColorBtn] = useState("");
   const [formInput, setFormInput] = useState(promptsClicked.map((p) => p.name));
+  const [pointsEarned, setPointsEarned] = useState();
 
   const history = useHistory();
 
-
-
   const handleClick = () => {
-
     setIsDisabled(true);
-    // item.value = "";
     setColorBtn("gray");
-
     setCheck(!check);
 
     const input = {
@@ -43,7 +39,7 @@ function GratitudeList({
 
     const data = getLSdata();
     setLogList(data.gratiLogs);
-
+    setLogList(formInput);
     history.push("/submission-done");
   };
 
@@ -53,20 +49,6 @@ function GratitudeList({
     setFormInput(newFormInput);
     setLogList(newFormInput);
   };
-
-  const handleSubmit = (e, item) => {
-    e.preventDefault();
-
-    if (!item.value || /^\s*$/.test(item.value)) {
-      return;
-    }
-    const newArray = item.value;
-    setLogList(logList);
-    setIsDisabled(true);
-    item.value = "";
-    setColorBtn("gray");
-  };
-
   const renderInput = (prompt, i) => {
     return (
       <div key={prompt.id}>
