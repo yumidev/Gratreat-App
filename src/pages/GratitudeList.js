@@ -39,7 +39,7 @@ function GratitudeList({
 
     const data = getLSdata();
     setLogList(data.gratiLogs);
-    setLogList(formInput);
+    // setLogList(formInput);
     history.push("/submission-done");
   };
 

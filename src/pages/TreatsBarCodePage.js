@@ -23,8 +23,6 @@ function TreatsBarCodePage({ treatItem, pointsEarned }) {
     } else {
       setMessage("Not Enough Points");
     }
-
-    history.push("/treatsbarcode");
   };
 
   return (
