@@ -7,3 +7,7 @@ export const getLSdata = () => {
   const dataObj = JSON.parse(rawData);
   return dataObj;
 }
+
+export const setRecord = (record) => {
+
+}

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Moment from "react-moment";
 import moment from 'moment';
-// import "moment-timezone";
 
 import headerStyle from "./Prompts.module.css";
 import Header from "./Header";
