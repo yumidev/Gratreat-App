@@ -30,7 +30,6 @@ function Records() {
         setLogs(logs.logs);
         setMood(logs.mood);
       }
-      console.log('logs', logs);
     } else {
       history.push('/');
     }
@@ -46,9 +45,9 @@ function Records() {
   };
 
   const emojiList = {
-    'smile': 'far fa-grin grin-emoji',
+    'happy': 'far fa-grin grin-emoji',
     'sad': 'far fa-frown sad-emoji',
-    'happy': 'far fa-smile happy-emoji',
+    'smile': 'far fa-smile happy-emoji',
     'meh': 'far fa-meh meh-emoji',
     'frown': 'far fa-angry frown-emoji',
   }
