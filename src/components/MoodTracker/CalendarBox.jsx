@@ -57,9 +57,10 @@ const CalendarBox = (props) => {
         }
       }
 
+      const dateNum = moment(logKey).get('date');
       bubbles.push(
-        <span className={`cell date ${log ? log.mood : ''}`}>
-          {moment(logKey).get('date')}
+        <span key={dateNum} className={`cell date ${log ? log.mood : ''}`}>
+          {dateNum}
         </span>
       )
       count --

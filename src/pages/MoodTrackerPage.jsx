@@ -64,7 +64,7 @@ function MoodTrackerPage(props) {
         onClickPreviousMonth={onClickPreviousMonth}
         onClickNextMonth={onClickNextMonth}
       />
-      <CalendarBox date={props.date} logList={props.logList}/>
+      <CalendarBox date={date} logList={props.logList}/>
       <StatusBox>
         <div className="title">Status</div>
         <div className="item-wrapper">
