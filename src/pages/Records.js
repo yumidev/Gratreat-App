@@ -1,95 +1,89 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import styled from 'styled-components';
 import styles from "./Records.module.css";
-import { Switch, Route, Link } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import FormatDate from "./FormatDate";
 import Header from "./Header";
+import { getSingleRecord, deleteOneRecord } from '../utils/localStorage'
 
 import "bootstrap/dist/css/bootstrap.css";
 
-function Records({
-  logList,
-  entryNumber,
-  setLogList,
-  trackMood,
-  setTrackMood,
-}) {
-  const [userRecord, setUserRecord] = useState("none");
-  const [hidePoints, setHidePoints] = useState("");
-  const [hideTreats, setHideTreats] = useState("none")
+const Item = styled.div`
+  background-color: white;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  width: 100%;
+`
+
+function Records() {
+  const [logs, setLogs] = useState([]);
+  const [mood, setMood] = useState('');
+
+  let { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
-    console.log('logList', logList);
-  }, []);
+    if (id) {
+      const logs = getSingleRecord(id);
+      setLogs(logs.logs);
+      setMood(logs.mood);
+      console.log('logs', logs);
+    } else {
+      history.push('/');
+    }
+  }, [])
 
-  const handleRecords = () => {
-    setHidePoints("none");
-    setUserRecord("");
+  const deleteOneRow = (date, i) => {
+    deleteOneRecord(date, i);
   };
 
-  const convertArray = Object.assign({}, [logList]);
-
-  let inputRef = useRef();
-
-  const deleteMessage = (i) => {
-    const modifyArray = [...logList];
-    let filteredEntry = modifyArray.filter((_, index) => i !== index);
-    setLogList(filteredEntry);
-  };
-
-  const handleTreats = () =>{
-    setHideTreats("");
-    setHidePoints("none");
-    setUserRecord("none");
+  const emojiList = {
+    'smile': 'far fa-grin grin-emoji',
+    'sad': 'far fa-frown sad-emoji',
+    'happy': 'far fa-smile happy-emoji',
+    'meh': 'far fa-meh meh-emoji',
+    'frown': 'far fa-angry frown-emoji',
   }
 
   return (
-    <div className={styles.recordSection}>
-      <section>
-        <div className={styles.header}>
-          <Header text="Your gratitude Log" title="Records" />
-        </div>
-        <div>
-          <header>
-            <div className={styles.titleRecords}>
-              <FormatDate />
-              <div>
-                <i class={trackMood}></i>
-              </div>
-            </div>
-          </header>
-          <div className={styles.recordForm}>
-            {logList.length >= 1
-              ? logList.map((res, i) => (
-                  <div key={i}>
-                    <p className={styles.userSavedEntry}>{res}</p>
-                    {res.isOpen ? (
-                      <div>
-                        <form>
-                          <input
-                            ref={inputRef}
-                            type="text"
-                            name="textarea"
-                            placeholder="Update message"
-                          />
-                        </form>
-                      </div>
-                    ) : null}
-                    <button
-                      className={styles.recordsBtn}
-                      onClick={() => {
-                        deleteMessage(i);
-                      }}
-                    >
-                      {" "}
-                      DELETE
-                    </button>
-                  </div>
-                ))
-              : null}
+    <div>{
+      logs && logs.length >= 1 ? (
+        <div className={styles.recordSection}>
+        <section>
+          <div className={styles.header}>
+            <Header text="Your gratitude Log" title="Records" />
           </div>
-        </div>
-      </section>
-    </div>
+          <div>
+            <header>
+              <div className={styles.titleRecords}>
+                <FormatDate />
+                <div>
+                  <i class={emojiList[mood]}></i>
+                </div>
+              </div>
+            </header>
+            <div className={styles.recordForm}>
+              {logs.map((log, i) => (
+                <Item key={i}>
+                  <p className={styles.userSavedEntry}>{log.text}</p>
+                  <button
+                    className={styles.recordsBtn}
+                    onClick={() => {
+                      deleteOneRow(id, i);
+                    }}
+                  >
+                    {" "}
+                    DELETE
+                  </button>
+                </Item>)
+              )}
+            </div>
+          </div>
+        </section>
+      </div>
+      ) : ''
+    }</div>
   );
 }
 

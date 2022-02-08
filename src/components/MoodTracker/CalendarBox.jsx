@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory, Link } from "react-router-dom";
 import styled from 'styled-components';
 
 import moment from 'moment';
@@ -46,6 +47,11 @@ const CalendarBoxWrapper = styled.div`
 
 const CalendarBox = (props) => {
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  const history = useHistory();
+
+  const onClickDate = (date) => {
+    history.push(`/grati-log/${date}`);
+  }
 
   const getNumberOfDaysInMonth = (date) => {
     return moment(date).endOf('month').date();
@@ -68,7 +74,11 @@ const CalendarBox = (props) => {
 
       const dateNum = moment(logKey).get('date');
       bubbles.push(
-        <span key={dateNum} className={`cell date ${log ? log.mood : ''}`}>
+        <span
+          key={dateNum}
+          className={`cell date ${log ? log.mood : ''}`}
+          onClick={() => { log && onClickDate(logKey) }}
+        >
           {dateNum}
         </span>
       )

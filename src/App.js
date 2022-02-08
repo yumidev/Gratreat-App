@@ -21,9 +21,14 @@ import InitialLocalStorageData from './db/localStorageData';
 import TreatsBarCodePage from './pages/TreatsBarCodePage';
 import Treats from './pages/TreatsPage';
 import TreatsPage from './pages/TreatsPage';
+import { setLSdata, getLSdata } from './utils/localStorage'
 
 const Main = styled.main`
   padding: 1rem;
+
+  .footer {
+    height: 40px;
+  }
 
   .footer a {
     margin: 0 20px 0 20px;
@@ -33,36 +38,28 @@ const Main = styled.main`
     border-top: var(--link-active-color);
   }
 `
-
 const App = () => {
   const [promptData, setpromptData] = useState(PromptsList);
   const [promptsClicked, setPromptsClicked] = useState([]);
-  const [logList, setLogList] = useState([]);
+  const [logList, setLogList] = useState({});
   const [entryNumber, setentryNumber] = useState(0);
   const [userData, setUserData] = useState();
-  
-  const setLSdata = (dataObj) => {
-    const dataStr = JSON.stringify(dataObj);
-    window.localStorage.setItem('gratreat', dataStr);
-  }
-  const getLSdata = () => {
-    const rawData = window.localStorage.getItem('gratreat') // item is always string, so we need to parse it
-    const dataObj = JSON.parse(rawData);
-    return dataObj;
-  }
+
   // window.localStorage.removeItem('');
 
   useEffect(() => {
     if (window.localStorage.getItem('gratreat')) {
       const data = getLSdata();
       setUserData(data.userInfo);
-      console.log('data exists: ', data);
+      setLogList(data.gratiLogs);
+      // console.log('data exists: ', data);
     } else {
       setLSdata(InitialLocalStorageData);
 
       const data = getLSdata();
       setUserData(data.userInfo);
-      console.log('injected default: ', data);
+      setLogList(data.gratiLogs);
+      // console.log('injected default: ', data);
     }
   }, [])
 
@@ -79,8 +76,9 @@ const App = () => {
               <AuthRoute exact user={userData || data?.verifyToken} path="/prompts" render={props => <PromptsPage {...props} promptData={promptData} promptsClicked={promptsClicked} setPromptsClicked={setPromptsClicked} entryNumber={entryNumber} setentryNumber={setentryNumber}/>} />
               <AuthRoute exact user={userData || data?.verifyToken} path="/mood" render={props => <MoodboardPage {...props} />} />
               <AuthRoute exact user={userData || data?.verifyToken} path="/grati-log" render={props => <GratiLogPage {...props} promptsClicked={promptsClicked} setPromptsClicked={setPromptsClicked} setLogList={setLogList} logList={logList} />} />
-              <AuthRoute user={userData || data?.verifyToken} path="/grati-log/:id" render={props => <GratiRecordsPage {...props} />} />
-              {/* <AuthRoute user={userData || data?.verifyToken} path="/mood-tracker" render={props => <MoodTrackerPage {...props} />} /> */}
+              {/* <AuthRoute user={userData || data?.verifyToken} path="/grati-log/:id" render={props => <GratiRecordsPage {...props} />} /> */}
+              <AuthRoute user={userData || data?.verifyToken} path="/grati-log/:id" render={props => <Records {...props} setLogList={setLogList} promptData={promptData} setpromptData={setpromptData} logList={logList} />} />
+              <AuthRoute user={userData || data?.verifyToken} path="/mood-tracker" render={props => <MoodTrackerPage {...props} logList={logList} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/records" render={props => <Records {...props} setLogList={setLogList} promptData={promptData} setpromptData={setpromptData} logList={logList} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/gratitudelist" render={props => <GratitudeList {...props} promptData={promptData} setpromptData={setpromptData} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/treats" render={props => <TreatsPage {...props} />} />
@@ -90,7 +88,7 @@ const App = () => {
               {/* <Route component={PageNotFound} /> */}
             </Switch>
             <div className={"footer"}>
-              <Footer />{" "}
+              <Footer />
             </div>
           </Main>
         </>) 

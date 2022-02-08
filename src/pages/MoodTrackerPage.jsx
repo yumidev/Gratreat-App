@@ -10,7 +10,7 @@ import CalendarBox from '../components/MoodTracker/CalendarBox'
 
 const Main = styled.main`
   display: block;
-  height: 100vh;
+  min-height: 80vh;
 
   .calendar-container {
     margin-top: 4rem;
