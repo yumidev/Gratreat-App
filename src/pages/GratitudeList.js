@@ -79,7 +79,7 @@ function GratitudeList({
           <h6 className={styles.topTitle}>Write your own</h6>
         </p>
         <h2 className={styles.title}>Gratitude Log</h2>
-        <FormatDate />, 2020
+        <FormatDate />, 2022
       </div>
       <p className={styles.pagesubheading}>I am </p>
       <div className={styles.gratitudeContainer}>
