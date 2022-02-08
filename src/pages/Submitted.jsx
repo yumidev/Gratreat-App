@@ -10,18 +10,21 @@ import styles from "./Records.module.css";
 import yay from "../images/yay.png";
 
 const Section = styled.section``;
-function Submitted({ entryNumber }) {
-  const [trackMood, setTrackMood] = useState([]);
+function Submitted({ logList}) {
+
 
   const history = useHistory();
 
   const handleRecords = (e) => {
-    history.push("/mood-tracker");
+    history.push("/records");
   };
 
   const handleTreats = (e) => {
     history.push("/treats");
   };
+
+  const pointsEarned = parseInt(logList.length * 100);
+
 
   return (
     <Section>
@@ -34,7 +37,7 @@ function Submitted({ entryNumber }) {
               <div>You got this!</div>
             </div>
             <div className={styles.pointsEarned}>+ 100 points</div>
-            <p>{entryNumber}</p>
+            <p>{pointsEarned}</p>
             <div>
               <button className={styles.recordsBtn} onClick={handleRecords}>
                 RECORDS

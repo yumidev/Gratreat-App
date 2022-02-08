@@ -13,9 +13,7 @@ import { MoodboardPage } from ".";
 
 function Prompts({
   promptsClick,
-  setpromptsClick,
-  entryNumber,
-  setentryNumber,
+  setpromptsClick
 }) {
   const [showSection, setShowSection] = useState(false);
   const [viewList, setViewList] = useState("none");
@@ -39,17 +37,6 @@ function Prompts({
     setHidePrompts("none");
   };
 
-  const handleMoodSelection = (e, item) => {
-    e.preventDefault();
-    const optionSelected = item;
-    setTrackMood([...trackMood, optionSelected]);
-    const target = e.target;
-  };
-
-  const clickContinue = () => {
-    sethideBoard("none");
-    setHidePrompts("");
-  };
 
   return (
     <div>
@@ -84,7 +71,6 @@ function Prompts({
         <GratitudeList
           promptsClick={promptsClick}
           setpromptsClick={setpromptsClick}
-          entryNumber={entryNumber}
           trackMood={trackMood}
           setTrackMood={setTrackMood}
         />

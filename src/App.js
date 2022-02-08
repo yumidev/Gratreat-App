@@ -74,17 +74,15 @@ const App = () => {
           <Main className="App">
             <Switch>
               <Route exact path="/login" render={props => <div>Please login</div>} />
-              <AuthRoute exact user={userData || data?.verifyToken} path="/prompts" render={props => <PromptsPage {...props} promptData={promptData} promptsClicked={promptsClicked} setPromptsClicked={setPromptsClicked} entryNumber={entryNumber} setentryNumber={setentryNumber}/>} />
+              <AuthRoute exact user={userData || data?.verifyToken} path="/prompts" render={props => <PromptsPage {...props} promptData={promptData} promptsClicked={promptsClicked} setPromptsClicked={setPromptsClicked} />} />
               <AuthRoute exact user={userData || data?.verifyToken} path="/mood" render={props => <MoodboardPage {...props} setTrackMood={setTrackMood} trackMood={trackMood} />} />
               <AuthRoute exact user={userData || data?.verifyToken} path="/grati-log" render={props => <GratiLogPage {...props} promptsClicked={promptsClicked} setPromptsClicked={setPromptsClicked} setLogList={setLogList} logList={logList} trackMood={trackMood} setTrackMood={setTrackMood} />} />
-              {/* <AuthRoute user={userData || data?.verifyToken} path="/grati-log/:id" render={props => <GratiRecordsPage {...props} />} /> */}
               <AuthRoute user={userData || data?.verifyToken} path="/grati-log/:id" render={props => <Records {...props} setLogList={setLogList} promptData={promptData} setpromptData={setpromptData} logList={logList} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/mood-tracker" render={props => <MoodTrackerPage {...props} logList={logList} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/records" render={props => <Records {...props} setLogList={setLogList} promptData={promptData} setpromptData={setpromptData} logList={logList} />} />
-              {/* <AuthRoute user={userData || data?.verifyToken} path="/gratitudelist" render={props => <GratitudeList {...props} promptData={promptData} setpromptData={setpromptData} />} /> */}
               <AuthRoute user={userData || data?.verifyToken} path="/treats" render={props => <TreatsPage {...props} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/treatsbarcode" render={props => <TreatsBarCodePage {...props} />} />
-              <AuthRoute user={userData || data?.verifyToken} path="/submission-done" render={props => <Submitted {...props} entryNumber={entryNumber} logList={logList} />} />
+              <AuthRoute user={userData || data?.verifyToken} path="/submission-done" render={props => <Submitted {...props} logList={logList} />} />
               <AuthRoute exact user={userData || data?.verifyToken} path="/" render={props => <Home />} />
               {/* <Route component={PageNotFound} /> */}
             </Switch>

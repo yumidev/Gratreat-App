@@ -12,8 +12,6 @@ import { addRecord, getLSdata } from '../utils/localStorage'
 
 function GratitudeList({
   promptsClicked,
-  entryNumber,
-
   setPromptsClicked,
   trackMood,
   setTrackMood,
@@ -28,25 +26,6 @@ function GratitudeList({
   const history = useHistory();
 
 
-// const record = [
-//   '2022-01-02', {
-//     mood: "happy",
-//     logs: [
-//       {
-//         subject: "family",
-//         text: "my brother got promoted at his work"
-//       },
-//       {
-//         subject: "weather",
-//         text: "Sunshine came out after 7 days of storm"
-//       },
-//       {
-//         subject: "memory",
-//         text: "I found elementary photobook from the upper bookshelf"
-//       }
-//     ]
-//   },
-// ]
 
   const handleClick = () => {
 
@@ -79,7 +58,6 @@ function GratitudeList({
     e.preventDefault();
 
     if (!item.value || /^\s*$/.test(item.value)) {
-      //setentryNumber(0);
       return;
     }
     const newArray = item.value;
