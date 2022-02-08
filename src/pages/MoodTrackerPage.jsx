@@ -61,6 +61,11 @@ function MoodTrackerPage(props) {
     setDate(firstDayofLastMonth.valueOf())
   }
 
+  const getMonthlyLogList = (logList) => {
+    const monthText = moment(new Date()).format('YYYY-MM')
+    return Object.keys(logList).filter(l => l.includes(monthText)).length
+  }
+
   return (
     <Main className="container">
       <div className={headerStyle.header}>
@@ -84,11 +89,11 @@ function MoodTrackerPage(props) {
           </div>
           <div className="item">
             <span className="label">Monthly points</span>
-            <span>{'+' + Object.keys(props.logList).length}</span>
+            <span>{'+' + getMonthlyLogList(props.logList)}</span>
           </div>
           <div className="item">
             <span className="label">Total points</span>
-            <span>{'+' + Object.keys(props.logList).length}</span>
+            <span>{'+' + Object.keys(props.logList).length * 100}</span>
           </div>
         </div>
       </StatusBox>
