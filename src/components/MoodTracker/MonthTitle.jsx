@@ -6,12 +6,12 @@ import Moment from "react-moment";
 const Wrapper = styled.div``
 
 const MonthTitle = (props) => {
-
   return (
   <Wrapper>
-    <button>{'<'}</button>
+    <button onClick={props.onClickPreviousMonth}>{'<'}</button>
+    <Moment local format="h:mm:ss DD MMMM YYYY">{props.date}</Moment>
     <Moment local format="MMMM YYYY">{props.date}</Moment>
-    <button>{'>'}</button>
+    <button onClick={props.onClickNextMonth}>{'>'}</button>
   </Wrapper>
   )
 }

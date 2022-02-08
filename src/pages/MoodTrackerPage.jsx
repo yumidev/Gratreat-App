@@ -16,9 +16,16 @@ const CalendarBox = styled.div`
 `
 
 const StatusBox = styled.div`
-  .status-box {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    text-align: initial;
+  }
+  
+  .item-wrapper {
     display: flex;
-    
+
     .item {
       display: flex;
       flex-direction: column;
@@ -78,8 +85,8 @@ function MoodTrackerPage(props) {
         {getMonthBubbles(date)}
       </CalendarBox>
       <StatusBox>
-        <div>Status</div>
-        <div className="status-box">
+        <div className="title">Status</div>
+        <div className="item-wrapper">
           <div className="item">
             <span>Total days</span>
             <span>{'+' + Object.keys(props.logList).length}</span>

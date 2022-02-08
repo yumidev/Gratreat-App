@@ -5,7 +5,7 @@ import Moment from "react-moment";
 
 const Wrapper = styled.div`
   .happy {
-
+    background-color: pink;
   }
 
   .grin {
@@ -23,7 +23,6 @@ const MonthTitle = (props) => {
   return (
   <Wrapper>
     <button className={props.mood}>{props.day}</button>
-    {/* <button>{'<'}</button> */}
   </Wrapper>
   )
 }
