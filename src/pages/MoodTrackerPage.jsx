@@ -8,7 +8,7 @@ import headerStyle from "./Prompts.module.css";
 import Header from "./Header";
 
 import MonthTitle from '../components/MoodTracker/MonthTitle'
-import DateBubble from '../components/MoodTracker/DateBubble'
+import CalendarBox from '../components/MoodTracker/CalendarBox'
 
 const Main = styled.main`
   display: block;
@@ -17,11 +17,6 @@ const Main = styled.main`
   .title {
     margin-top: 3rem;
   }
-`
-
-const CalendarBox = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
 `
 
 const StatusBox = styled.div`
@@ -58,42 +53,6 @@ function MoodTrackerPage(props) {
     setDate(firstDayofLastMonth.valueOf())
   }
 
-  const getNumberOfDaysInMonth = (date) => {
-    return moment(date).endOf('month').date();
-  }
-
-  const getMonthBubbles = (date) => {
-    const days = getNumberOfDaysInMonth(date);
-    let count = days;
-    let bubbles = [];
-    let rows = [];
-    let weekRow = [];
-    while (count) {
-      const logKey = moment(date).set('date', days - count + 1).format('YYYY-MM-DD');
-      const log = props.logList[logKey];
-
-      if (count === days) {
-        const dow = moment(logKey).day();
-        if (dow) {
-          bubbles = new Array(dow).fill(<span className="cell">{' '}</span>)
-        }
-      }
-
-      bubbles.push(
-        <DateBubble
-          className="cell"
-          day={moment(logKey).get('date')}
-          mood={log ? log.mood : ''}
-        />
-      )
-      count --
-    }
-
-    return bubbles;
-  }
-
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
   return (
     <Main className="container">
       <div className={headerStyle.header}>
@@ -105,10 +64,7 @@ function MoodTrackerPage(props) {
         onClickPreviousMonth={onClickPreviousMonth}
         onClickNextMonth={onClickNextMonth}
       />
-      <CalendarBox>
-        {daysOfWeek.map(d => <span className="cell">{d}</span>)}
-        {getMonthBubbles(date).map(row => <div className="calendar-row">{row}</div>)}
-      </CalendarBox>
+      <CalendarBox date={props.date} logList={props.logList}/>
       <StatusBox>
         <div className="title">Status</div>
         <div className="item-wrapper">
