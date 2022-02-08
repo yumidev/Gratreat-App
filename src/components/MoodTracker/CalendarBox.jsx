@@ -18,8 +18,9 @@ const CalendarBoxWrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
-    border-radius: 20px;
+    height: 42px;
+    border-radius: 30px;
+    margin: 2px;
   }
 
   .happy {

@@ -14,8 +14,9 @@ const Main = styled.main`
   display: block;
   height: 100vh;
 
-  .title {
-    margin-top: 3rem;
+  .calendar-container {
+    margin-top: 4rem;
+    height: 55vh;
   }
 `
 
@@ -30,10 +31,19 @@ const StatusBox = styled.div`
   
   .item-wrapper {
     display: flex;
+    justify-content: space-between;
+    border: solid 2px black;
+    border-radius: 10px;
+    padding: 20px 0;
 
     .item {
       display: flex;
       flex-direction: column;
+      flex: 1;
+    }
+
+    .label {
+      height: 30px;
     }
   }
 `
@@ -58,26 +68,28 @@ function MoodTrackerPage(props) {
       <div className={headerStyle.header}>
         <Header text="Your Gratitude Log" title="Tracker" />
       </div>
-      <MonthTitle
-        className="title"
-        date={date}
-        onClickPreviousMonth={onClickPreviousMonth}
-        onClickNextMonth={onClickNextMonth}
-      />
-      <CalendarBox date={date} logList={props.logList}/>
+      <div className="calendar-container">
+        <MonthTitle
+          className="title"
+          date={date}
+          onClickPreviousMonth={onClickPreviousMonth}
+          onClickNextMonth={onClickNextMonth}
+        />
+        <CalendarBox date={date} logList={props.logList}/>
+      </div>
       <StatusBox>
         <div className="title">Status</div>
         <div className="item-wrapper">
           <div className="item">
-            <span>Total days</span>
+            <span className="label">Total days</span>
             <span>{'+' + Object.keys(props.logList).length}</span>
           </div>
           <div className="item">
-            <span>Monthly points</span>
+            <span className="label">Monthly points</span>
             <span>{'+' + Object.keys(props.logList).length}</span>
           </div>
           <div className="item">
-            <span>Total points</span>
+            <span className="label">Total points</span>
             <span>{'+' + Object.keys(props.logList).length}</span>
           </div>
         </div>
