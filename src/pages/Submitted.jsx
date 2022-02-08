@@ -16,7 +16,7 @@ function Submitted({ entryNumber }) {
   const history = useHistory();
 
   const handleRecords = (e) => {
-    history.push("/records");
+    history.push("/mood-tracker");
   };
 
   const handleTreats = (e) => {

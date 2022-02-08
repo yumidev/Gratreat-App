@@ -1,13 +1,14 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
+import moment from 'moment';
 import Prompts from "./Prompts";
 import Records from "./Records";
 import { Switch, Route } from "react-router-dom";
 import styles from "./GratitudeList.module.css";
 import FormatDate from "./FormatDate";
-import Header from "./Header";
-import Footer from "./Footer.jsx";
+import { addRecord, getLSdata } from '../utils/localStorage'
+
 
 function GratitudeList({
   promptsClicked,
@@ -26,19 +27,44 @@ function GratitudeList({
 
   const history = useHistory();
 
+
+// const record = [
+//   '2022-01-02', {
+//     mood: "happy",
+//     logs: [
+//       {
+//         subject: "family",
+//         text: "my brother got promoted at his work"
+//       },
+//       {
+//         subject: "weather",
+//         text: "Sunshine came out after 7 days of storm"
+//       },
+//       {
+//         subject: "memory",
+//         text: "I found elementary photobook from the upper bookshelf"
+//       }
+//     ]
+//   },
+// ]
+
   const handleClick = () => {
-    // if (!item.value || /^\s*$/.test(item.value)) {
-    //setentryNumber(0);
-    //   return;
-    // }
-    // const newArray = item.value;
-    setLogList(formInput);
 
     setIsDisabled(true);
     // item.value = "";
     setColorBtn("gray");
 
     setCheck(!check);
+
+    const input = {
+      mood: trackMood,
+      logs: promptsClicked.map((p,i) => { return { subject: p.name, text: formInput[i] }})
+    }
+    addRecord(moment(new Date()).format('YYYY-MM-DD'), input);
+
+    const data = getLSdata();
+    setLogList(data.gratiLogs);
+
     history.push("/submission-done");
   };
 

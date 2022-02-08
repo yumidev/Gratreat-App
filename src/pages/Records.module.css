@@ -18,7 +18,7 @@
 }
 
 .recordSection {
-  margin-top: 80px;
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,20 +33,20 @@
 .recordForm {
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 30px 20px;
   align-items: center;
   list-style: none;
   border-radius: 20px;
   background-color: var(--record-container-blue);
+  width: 90vw;
 }
 
 .userSavedEntry {
   background-color: white;
   color: var(--text-color);
-  padding: 0px 70px 50px 70px;
+  padding: 15px 15px 5px;
   border-radius: 10px;
-  font-size: 24px;
-  margin-top: 15px;
+  font-size: 12px;
 }
 
 .recordsBtn {
@@ -57,7 +57,6 @@
   color: var(--button-color);
   background-color: white;
   border-color: var(--button-color);
-  padding: 5px;
   border-style: solid;
   font-size: 12px;
 }

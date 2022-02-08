@@ -5,7 +5,7 @@
       points: 10
     },
     gratiLogs: {
-      '2021-11-02': {
+      '2022-01-02': {
         mood: "happy",
         logs: [
           {
@@ -22,8 +22,8 @@
           }
         ]
       },
-      '2021-11-07': {
-        mood: "grin",
+      '2022-01-07': {
+        mood: "meh",
         logs: [
           {
             subject: "family",
@@ -39,7 +39,7 @@
           }
         ]
       },
-      '2021-11-10': {
+      '2022-01-10': {
         mood: "smile",
         logs: [
           {
@@ -56,8 +56,8 @@
           }
         ]
       },
-      '2021-11-12': {
-        mood: "neutral",
+      '2022-01-12': {
+        mood: "sad",
         logs: [
           {
             subject: "work",
@@ -73,8 +73,8 @@
           }
         ]
       },
-      '2021-11-15': {
-        mood: "grin",
+      '2022-01-15': {
+        mood: "meh",
         logs: [
           {
             subject: "family",
@@ -90,7 +90,7 @@
           }
         ]
       },
-      '2021-11-20': {
+      '2022-01-20': {
         mood: "happy",
         logs: [
           {
@@ -107,8 +107,8 @@
           }
         ]
       },
-      '2021-11-22': {
-        mood: "angry",
+      '2022-01-22': {
+        mood: "frown",
         logs: [
           {
             subject: "work",
@@ -124,8 +124,8 @@
           }
         ]
       },
-      '2021-11-26': {
-        mood: "neutral",
+      '2022-01-26': {
+        mood: "sad",
         logs: [
           {
             subject: "weather",
@@ -141,7 +141,7 @@
           }
         ]
       },
-      '2021-11-27': {
+      '2022-01-27': {
         mood: "smile",
         logs: [
           {
@@ -155,6 +155,74 @@
           {
             subject: "friend",
             text: "my bday is soon!"
+          }
+        ]
+      },
+      '2022-02-02': {
+        mood: "happy",
+        logs: [
+          {
+            subject: "family",
+            text: "my brother got promoted at his work"
+          },
+          {
+            subject: "weather",
+            text: "Sunshine came out after 7 days of storm"
+          },
+          {
+            subject: "memory",
+            text: "I found elementary photobook from the upper bookshelf"
+          }
+        ]
+      },
+      '2022-02-03': {
+        mood: "meh",
+        logs: [
+          {
+            subject: "family",
+            text: "my brother's wife is pregnant! "
+          },
+          {
+            subject: "food",
+            text: "plant-based food at the uni"
+          },
+          {
+            subject: "habit",
+            text: "new gym routine practiced! "
+          }
+        ]
+      },
+      '2022-02-06': {
+        mood: "happy",
+        logs: [
+          {
+            subject: "friend",
+            text: "social Friday is today!"
+          },
+          {
+            subject: "break",
+            text: "tried a new lunch place during break"
+          },
+          {
+            subject: "health",
+            text: "my body is healthy"
+          }
+        ]
+      },
+      '2022-02-08': {
+        mood: "smile",
+        logs: [
+          {
+            subject: "work",
+            text: "got promoted!"
+          },
+          {
+            subject: "habit",
+            text: "this app works!"
+          },
+          {
+            subject: "break",
+            text: "coffee break with colleagues"
           }
         ]
       },
