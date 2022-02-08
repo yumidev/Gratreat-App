@@ -4,7 +4,7 @@ import TreatsPage from "./TreatsPage";
 import React from "react";
 import barCode from "../images/Haagen-Daz_barcode.jpeg";
 import {useState} from 'react';
-import {useHistory} from 'react';
+import { useHistory } from "react-router-dom";
 
 
 function TreatsBarCodePage({treatItem, pointsEarned}) {
