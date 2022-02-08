@@ -20,17 +20,8 @@ const Main = styled.main`
 `
 
 const CalendarBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  
-  .calendar-header {
-
-  }
-
-  .calendar-body {
-    display: block;
-  }
-  // height: 50vh;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 `
 
 const StatusBox = styled.div`
@@ -74,35 +65,31 @@ function MoodTrackerPage(props) {
   const getMonthBubbles = (date) => {
     const days = getNumberOfDaysInMonth(date);
     let count = days;
+    let bubbles = [];
     let rows = [];
     let weekRow = [];
     while (count) {
       const logKey = moment(date).set('date', days - count + 1).format('YYYY-MM-DD');
       const log = props.logList[logKey];
-      console.log('logKey', logKey);
-      console.log('log', log);
+
       if (count === days) {
         const dow = moment(logKey).day();
         if (dow) {
-          weekRow = new Array(dow).fill(<span>N/A</span>)
+          bubbles = new Array(dow).fill(<span className="cell">{' '}</span>)
         }
       }
-      if (weekRow.length < 7) {
-        weekRow.push(
-          <DateBubble
-            key={count}
-            day={moment(logKey).get('date')}
-            mood={log ? log.mood : ''}
-          />
-        )
-      } else {
-        rows.push(weekRow);
-        weekRow = [];
-      }
+
+      bubbles.push(
+        <DateBubble
+          className="cell"
+          day={moment(logKey).get('date')}
+          mood={log ? log.mood : ''}
+        />
+      )
       count --
     }
 
-    return rows;
+    return bubbles;
   }
 
   const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -119,12 +106,8 @@ function MoodTrackerPage(props) {
         onClickNextMonth={onClickNextMonth}
       />
       <CalendarBox>
-        <div className="calendar-header">
-          { daysOfWeek.map(d => <span>{d}</span>) }
-        </div>
-        <div className="calendar-body">
-          {getMonthBubbles(date).map(row => <div>{row}</div>)}
-        </div>
+        {daysOfWeek.map(d => <span className="cell">{d}</span>)}
+        {getMonthBubbles(date).map(row => <div className="calendar-row">{row}</div>)}
       </CalendarBox>
       <StatusBox>
         <div className="title">Status</div>

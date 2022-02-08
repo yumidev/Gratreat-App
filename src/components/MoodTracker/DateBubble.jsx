@@ -21,7 +21,7 @@ const Wrapper = styled.span`
 const MonthTitle = (props) => {
 
   return (
-  <Wrapper>
+  <Wrapper className={props.className}>
     <button className={props.mood}>{props.day}</button>
   </Wrapper>
   )
