@@ -58,8 +58,8 @@ a:hover {
 
 .container {
   justify-content: center;
-
   align-items: center;
+  background-color: white;
 }
 
 .treatsMenu {
@@ -101,9 +101,22 @@ a:hover {
   padding:5px;
 }
 
-.treatImg{
-  width:50%;
+.treatImg {
+  width: 50%;
   margin: 0 auto;
+  background-color: white;
+}
+
+.linkBtn {
+  color: var(--button-color);
+  font-size: 14px;
+  font-weight: bolder;
+  margin: 10px 0px 10px 0px;
+  border-style: none;
+  padding: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 15px;
 }
 
 .barCodebox{

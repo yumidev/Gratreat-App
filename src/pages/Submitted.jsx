@@ -10,8 +10,7 @@ import styles from "./Records.module.css";
 import yay from "../images/yay.png";
 
 const Section = styled.section``;
-function Submitted({logList}) {
-
+function Submitted({ logList }) {
   const history = useHistory();
 
   const handleRecords = (e) => {
@@ -24,13 +23,17 @@ function Submitted({logList}) {
 
   const pointsEarned = parseInt(logList.length * 100);
 
-
   return (
     <Section>
       <section>
         <div className={styles.overLay}>
           <div className={styles.pointsContainer}>
-            <img src={yay} alt="You Got this!" width="70" />
+            <img
+              className={styles.person}
+              src={yay}
+              alt="You Got this!"
+              width="70"
+            />
 
             <div className="">
               <div>You got this!</div>
