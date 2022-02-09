@@ -10,7 +10,7 @@ import styles from "./Records.module.css";
 import yay from "../images/yay.png";
 
 const Section = styled.section``;
-function Submitted({ logList }) {
+function Submitted({ logList, promptsClicked }) {
   const history = useHistory();
 
   const handleRecords = (e) => {
@@ -21,7 +21,7 @@ function Submitted({ logList }) {
     history.push("/treats");
   };
 
-  const pointsEarned = parseInt(logList.length * 100);
+  const pointsEarned = parseInt(promptsClicked.length * 100);
 
   return (
     <Section>
@@ -38,8 +38,8 @@ function Submitted({ logList }) {
             <div className="">
               <div>You got this!</div>
             </div>
-            <div className={styles.pointsEarned}>+ 100 points</div>
-            <p>{pointsEarned}</p>
+            <div className={styles.pointsEarned}>{`+ ${pointsEarned} points`}</div>
+            {/* <p>{pointsEarned}</p> */}
             <div>
               <button className={styles.recordsBtn} onClick={handleRecords}>
                 RECORDS

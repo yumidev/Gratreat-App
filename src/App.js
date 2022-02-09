@@ -82,7 +82,7 @@ const App = () => {
               <AuthRoute user={userData || data?.verifyToken} path="/records" render={props => <Records {...props} setLogList={setLogList} promptData={promptData} setpromptData={setpromptData} logList={logList} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/treats" render={props => <TreatsPage {...props} logList={logList} />} />
               <AuthRoute user={userData || data?.verifyToken} path="/treatsbarcode" render={props => <TreatsBarCodePage {...props} />} />
-              <AuthRoute user={userData || data?.verifyToken} path="/submission-done" render={props => <Submitted {...props} logList={logList} />} />
+              <AuthRoute user={userData || data?.verifyToken} path="/submission-done" render={props => <Submitted {...props} logList={logList} promptsClicked={promptsClicked} />} />
               <AuthRoute exact user={userData || data?.verifyToken} path="/" render={props => <Home />} />
               {/* <Route component={PageNotFound} /> */}
             </Switch>
