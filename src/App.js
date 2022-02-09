@@ -49,7 +49,7 @@ const App = () => {
   // window.localStorage.removeItem('');
 
   useEffect(() => {
-    if (window.localStorage.getItem('gratreat2202')) {
+    if (window.localStorage.getItem('gratreat2022')) {
       const data = getLSdata();
       setUserData(data.userInfo);
       setLogList(data.gratiLogs);

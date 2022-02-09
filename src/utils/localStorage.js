@@ -3,14 +3,14 @@ export const setLSdata = (dataObj) => {
   if (orgData) {
     orgData.gratiLogs = dataObj;
     const dataStr = JSON.stringify(orgData);
-    window.localStorage.setItem('gratreat2202', dataStr);
+    window.localStorage.setItem('gratreat2022', dataStr);
   } else {
     const dataStr = JSON.stringify(dataObj);
-    window.localStorage.setItem('gratreat2202', dataStr);
+    window.localStorage.setItem('gratreat2022', dataStr);
   }
 }
 export const getLSdata = () => {
-  const rawData = window.localStorage.getItem('gratreat2202')
+  const rawData = window.localStorage.getItem('gratreat2022')
   const dataObj = JSON.parse(rawData);
   return dataObj;
 }
