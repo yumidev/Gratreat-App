@@ -1,5 +1,12 @@
 # Grati-Treat-App
 
+## About
+
+‘Gratreat’ is a mobile app that motivates people to practice improving their well-being and mental health by recording gratitude regularly and by offering treats.
+
+link: http://gratreat.s3-website.ap-northeast-2.amazonaws.com/
+hackathon link: https://devpost.com/software/gratreat-nw0e6g#updates
+
 ## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
